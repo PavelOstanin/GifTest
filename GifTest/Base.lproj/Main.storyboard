@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Gif Stream View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="GifStreamViewController" customModule="GifTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dEI-aY-aKY">
+                                <rect key="frame" x="0.0" y="100" width="375" height="567"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewLayout key="collectionViewLayout" id="dzD-1Y-lqs" customClass="IGListCollectionViewLayout"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GifCollectionViewCell" id="nsR-yY-tm3" customClass="GifCollectionViewCell" customModule="GifTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gpI-Jh-wbH" customClass="FLAnimatedImageView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </imageView>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="N4Z-iU-EA5">
+                                                    <rect key="frame" x="15" y="15" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="N4Z-iU-EA5" firstAttribute="centerX" secondItem="nsR-yY-tm3" secondAttribute="centerX" id="NHs-1O-vbW"/>
+                                            <constraint firstItem="gpI-Jh-wbH" firstAttribute="top" secondItem="nsR-yY-tm3" secondAttribute="top" id="fMS-hZ-McH"/>
+                                            <constraint firstAttribute="bottom" secondItem="gpI-Jh-wbH" secondAttribute="bottom" id="fOo-Ge-AWM"/>
+                                            <constraint firstAttribute="trailing" secondItem="gpI-Jh-wbH" secondAttribute="trailing" id="fX7-U5-Bqf"/>
+                                            <constraint firstItem="N4Z-iU-EA5" firstAttribute="centerY" secondItem="nsR-yY-tm3" secondAttribute="centerY" id="rns-FR-lKM"/>
+                                            <constraint firstItem="gpI-Jh-wbH" firstAttribute="leading" secondItem="nsR-yY-tm3" secondAttribute="leading" id="xrn-5v-GDS"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="activityIndicator" destination="N4Z-iU-EA5" id="l1i-9G-MwI"/>
+                                            <outlet property="gifImage" destination="gpI-Jh-wbH" id="v14-LZ-IW4"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="LXX-Fb-eOH">
+                                <rect key="frame" x="0.0" y="28" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Ar8-IP-ctO"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dEI-aY-aKY" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="DLz-s4-FpR"/>
+                            <constraint firstItem="dEI-aY-aKY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="JFw-yW-ohI"/>
+                            <constraint firstItem="dEI-aY-aKY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Jev-8W-csU"/>
+                            <constraint firstItem="LXX-Fb-eOH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="KNl-nm-Qh4"/>
+                            <constraint firstItem="LXX-Fb-eOH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="UEC-Ek-wpX"/>
+                            <constraint firstItem="dEI-aY-aKY" firstAttribute="top" secondItem="LXX-Fb-eOH" secondAttribute="bottom" constant="16" id="g4o-Sh-gaf"/>
+                            <constraint firstItem="LXX-Fb-eOH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vPT-aT-bue"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="dEI-aY-aKY" id="xja-r4-w5S"/>
+                        <outlet property="searchBar" destination="LXX-Fb-eOH" id="CUN-xg-9rD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+</document>
